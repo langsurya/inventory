@@ -11,12 +11,19 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'components' => [
-        'modules' => [
-            'user' => [
-                'class' => 'dektrium\user\Module',
-            ],
+    'modules' => [
+        // 'user' => [
+        //     'class' => 'dektrium\user\Module',
+        // ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'enableUnconfirmedLogin' => true,
+            'confirmWithin' => 21600,
+            'cost' => 12,
+            'admins' => ['admin']
         ],
+    ],
+    'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'M-r9FAv-5SfFoL3kTMcXMEWl6IQW45TT',
@@ -31,15 +38,30 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'mailer' => [
+        /*old default*/
+        /*'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+        ],*/
+        'mail' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            // 'viewPath' => '@app/mailer',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'pronevaline@gmail.com',
+                'password' => 'nganu123',
+                'port' => '587',
+                'encryption' => 'tls',
+                'localDomain' => '[127.0.0.1]',
+            ],
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            // 'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
@@ -48,14 +70,14 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
