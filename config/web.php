@@ -12,6 +12,11 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'modules' => [
+            'user' => [
+                'class' => 'dektrium\user\Module',
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'M-r9FAv-5SfFoL3kTMcXMEWl6IQW45TT',
