@@ -31,7 +31,7 @@
                 </h3>
 
                 <p>
-                    Users
+                    User
                 </p>
             </div>
             <div class="icon">
