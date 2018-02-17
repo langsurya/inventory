@@ -24,6 +24,9 @@ $config = [
         ],
     ],
     'components' => [
+        'helpers' => [
+            'class' => 'app\components\Helpers'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'M-r9FAv-5SfFoL3kTMcXMEWl6IQW45TT',
@@ -46,18 +49,18 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],*/
-        'mail' => [
+        'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // 'viewPath' => '@app/mailer',
-            'useFileTransport' => false,
+            'viewPath' => '@app/mailer',
+            'useFileTransport' => true,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'pronevaline@gmail.com',
-                'password' => 'nganu123',
+                'username' => 'altech510@gmail.com',
+                'password' => 'mima2422',
                 'port' => '587',
                 'encryption' => 'tls',
-                'localDomain' => '[127.0.0.1]',
+                // 'localDomain' => '[127.0.0.1]',
             ],
         ],
         'log' => [
