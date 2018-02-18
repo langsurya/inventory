@@ -7,23 +7,23 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language'=>'id',
+    'timeZone' => 'Asia/Jakarta',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-        // 'user' => [
-        //     'class' => 'dektrium\user\Module',
-        // ],
-        'user' => [
-            'class' => 'dektrium\user\Module',
-            'enableUnconfirmedLogin' => true,
-            'confirmWithin' => 21600,
-            'cost' => 12,
-            'admins' => ['admin']
-        ],
+        'admin-' => [
+            'class' => 'mdm\admin\Module',
+            'layout' => 'top-menu',
+            'mainLayout' => '@app/views/layouts/backend/main.php',
+        ]
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'M-r9FAv-5SfFoL3kTMcXMEWl6IQW45TT',
@@ -33,7 +33,11 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'authTimeout' => 60*60*24,
+            'identityCookie' => [
+                'name' => '_simpgq8kwjbf75', // unique for frontend
+            ]
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -69,6 +73,10 @@ $config = [
                 ],
             ],
         ],
+        'user' => [
+            'identityClass' => 'mdm\admin\models\User',
+            'loginUrl' => ['site/index'],
+        ],
         'db' => $db,
         
         'urlManager' => [
@@ -79,6 +87,33 @@ $config = [
         ],
         
     ],
+    'as beforeRequest' => [
+        'class' => 'yii\filters\AccessControl',
+        'rules' => [
+            [
+                'allow' => true,
+                'actions' => ['reset-password', 'login', 'request-password-reset'],
+            ],
+            [
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
+        'denyCallback' => function () {
+            return Yii::$app->response->redirect(['site/login']);
+        },
+    ],
+
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/login',
+            'site/logout',
+            'debug/*',
+            'site/request-password-reset'
+        ]
+    ],
+
     'params' => $params,
 ];
 
