@@ -69,15 +69,21 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionLogin()
+    public function actionLogin($key = null)
     {
+        $this->layout = '/backend/main_login';
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->setSessionPegawai();
+            if($key === null)
+                return $this->goHome();
+            else
+                return $this->redirect(['first-login']);
         }
         return $this->render('login', [
             'model' => $model,
@@ -94,6 +100,26 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    protected function setSEssionPegawai()
+    {
+        if (Yii::$app->user->can('pegawai-role')) {
+            $model = Pegawai::find()->where(['user_id'=>Yii::$app->user->identity->id])->one();
+            if (!empty($model)) {
+                \Yii::$app->session['namaPegawai'] = $model->nama_pegawai;
+                \Yii::$app->session['fotoPegawai'] = $model->foto;
+                \Yii::$app->session['IDPegawai'] = $model->id_pegawai;
+            } else {
+                \Yii::$app->session['namaPegawai'] = Yii::$app->user->identity->username;
+                \Yii::$app->session['fotoPegawai'] = "/images/default-photo.jpg";
+            }
+        }
+
+        else {
+            \Yii::$app->session['namaPegawai'] = Yii::$app->user->identity->username;
+            \Yii::$app->session['fotoPegawai'] = "/images/default-photo.jpg";
+        }
     }
 
     /**

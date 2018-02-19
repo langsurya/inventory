@@ -9,6 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'language'=>'id',
     'timeZone' => 'Asia/Jakarta',
+    'layout' => 'backend/main',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -23,6 +24,9 @@ $config = [
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+        ],
+        'helpers' => [
+            'class' => 'app\components\Helpers'
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
