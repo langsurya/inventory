@@ -29,6 +29,27 @@ BackendAsset::register($this);
 		<?php echo $this->render('header') ?>
 
 		<?php echo $this->render('sidebar') ?>
+
+		<div id="content" class="ui-content ui-content-compact">
+			<div class="page-head-wrap">
+				<h4 class="margin0">
+					<?php echo $this->title ?>
+				</h4>
+				<div class="breadcrumb-right">
+					<?php echo Breadcrumbs::widget([
+						'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+					]) ?>
+				</div>
+			</div>
+			<div class="ui-content-body">
+				<div class="panel">
+					<div class="panel-body">
+						<?php echo $content ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 <?php $this->endBody() ?>

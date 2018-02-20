@@ -4,11 +4,11 @@ $notifikasi = Yii::$app->helpers->getNotifikasiUser();
 $pesan      = Yii::$app->helpers->getPesanUser();
 
 $jumlahRead = 0;
-// foreach ($pesan as $key => $value) {
-//  if ($value['is_read'] == 1) {
-//      $jumlahRead +=1;
-//  }
-// }
+foreach ($pesan as $key => $value) {
+ if ($value['is_read'] == 1) {
+     $jumlahRead +=1;
+ }
+}
 
 $jumlahPesan = count($pesan);
 $unRead     = $jumlahPesan - $jumlahRead;
