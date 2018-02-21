@@ -14,7 +14,7 @@ $jumlahPesan = count($pesan);
 $unRead     = $jumlahPesan - $jumlahRead;
 
 ?>
-<header id="header" class="ui-header">
+<header id="header" class="ui-header ui-header--blue text-white">
     <div class="navbar-header">
         <!-- logo start -->
         <a href="/" class="navbar-brand">
