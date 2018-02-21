@@ -15,7 +15,7 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-        'admin-' => [
+        'inventory-admin' => [
             'class' => 'mdm\admin\Module',
             'layout' => 'top-menu',
             'mainLayout' => '@app/views/layouts/backend/main.php',

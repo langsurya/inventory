@@ -14,11 +14,12 @@ $jumlahPesan = count($pesan);
 $unRead     = $jumlahPesan - $jumlahRead;
 
 ?>
-<header id="header" class="ui-header">
+<header id="header" class="ui-header ui-header--blue text-white">
     <div class="navbar-header">
         <!-- logo start -->
         <a href="/" class="navbar-brand">
             <span class="logo" style="font-size: 32px;">INVENTORY</span>
+            <span class="logo-compact" style="font-size:32px;"><i class="fa fa-snowflake-o"></i></span>
         </a>
     </div>
 

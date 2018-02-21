@@ -7,7 +7,7 @@ $callback = function($menu){
     return [
         'label' => $menu['name'],
         'url' => [$menu['route']],
-        // 'active' => [$menu['route']],
+        'active' => [$menu['route']],
         'option' => $data,
         'icon' => $menu['data'], 
         'items' => $menu['children'],
