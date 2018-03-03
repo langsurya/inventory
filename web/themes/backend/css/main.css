@@ -2647,7 +2647,9 @@ table
 ----------------------------------------------*/
 .general-table {
   margin-bottom: 12px; }
-
+  form {
+    color: #2c2c2c;
+  }
 table.dataTable {
   border: 1px solid #ddd; }
 
