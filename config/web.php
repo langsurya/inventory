@@ -6,7 +6,7 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','debugger'],
     'language'=>'id',
     'timeZone' => 'Asia/Jakarta',
     'layout' => 'backend/main',
@@ -19,11 +19,20 @@ $config = [
             'class' => 'mdm\admin\Module',
             'layout' => 'top-menu',
             'mainLayout' => '@app/views/layouts/backend/main.php',
+        ],
+        'master' => [
+            'class' => 'app\modules\master\Master',
+        ],
+        'profile' => [
+            'class' => 'app\modules\profile\Profile',
         ]
     ],
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+        ],
+        'debugger' => [
+            'class' => 'app\components\Debugger'
         ],
         'helpers' => [
             'class' => 'app\components\Helpers'
