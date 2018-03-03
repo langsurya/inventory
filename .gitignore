@@ -8,12 +8,14 @@ nbproject
 .buildpath
 .project
 .settings
+composer.lock
 
 # windows thumbnail cache
 Thumbs.db
 
 # composer vendor dir
 /vendor
+/web/uploads/*
 
 # composer itself is not needed
 composer.phar
