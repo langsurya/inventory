@@ -103,8 +103,8 @@ $unRead     = $jumlahPesan - $jumlahRead;
                     <span class="caret hidden-sm hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                    <li><a href="/profile/data-profile/index"><i class="fa fa-user"></i>  Profile</a></li>
-                    <li><a href="/site/change-password"><i class="fa fa-unlock-alt"></i>  Ubah Pasword</a></li>
+                    <li><a href="/profile/data-profile/index"><i class="fa fa-user"></i> Profile</a></li>
+                    <li><a href="/site/change-password"><i class="fa fa-unlock-alt"></i> Ubah Pasword</a></li>
                     <li class="divider"></li>
                     <li>
                         <?php 
