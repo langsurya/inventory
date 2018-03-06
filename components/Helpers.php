@@ -3,11 +3,12 @@
 namespace app\components;
 
 use Yii;
+use yii\web\UploadedFile;
 
 use app\models\Notifikasi;
 use app\models\Pesan;
-use app\modules\profile\models\Pegawai;
 
+use app\modules\profile\models\Pegawai;
 use mdm\admin\models\User;
 
 class Helpers extends \yii\base\Component
@@ -124,7 +125,7 @@ class Helpers extends \yii\base\Component
 
     }
 
-    public function getPegawiIdByUserId($id = null)
+    public function getPegawaiIdByUserId($id = null)
     {
         $userId = !empty($id)? $id : Yii::$app->user->identity->id;
         $model = Pegawai::find()->select(['id_pegawai'])->where(['user_id'=>$userId])->one();

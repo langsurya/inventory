@@ -34,8 +34,14 @@ $config = [
         'debugger' => [
             'class' => 'app\components\Debugger'
         ],
+        'generate' => [
+            'class' => 'app\components\Generator'
+        ],
         'helpers' => [
             'class' => 'app\components\Helpers'
+        ],
+        'helperData' => [
+            'class' => 'app\components\helperData'
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

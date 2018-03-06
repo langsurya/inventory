@@ -9,6 +9,11 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\modules\profile\models\Pegawai;
+
+use mdm\admin\models\form\ResetPassword;
+use mdm\admin\models\form\Signup;
+use mdm\admin\models\form\ChangePassword;
 
 class SiteController extends Controller
 {
@@ -61,6 +66,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['login']);
+        }
+
         return $this->render('index');
     }
 
@@ -102,7 +111,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    protected function setSEssionPegawai()
+    protected function setSessionPegawai()
     {
         if (Yii::$app->user->can('pegawai-role')) {
             $model = Pegawai::find()->where(['user_id'=>Yii::$app->user->identity->id])->one();
