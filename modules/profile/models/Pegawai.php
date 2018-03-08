@@ -105,4 +105,29 @@ class Pegawai extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getBank()
+    {
+        return $this->hasOne(\app\modules\master\models\Bank::className(), ['id_bank' => 'bank_id']);
+    }
+
+    public static function saveOnTransaksi($status)
+    {
+        $model = new Pegawai;
+        $model->status = $status;
+        $model->save(false);
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        if($this->scenario == 'verifikasi' && $this->status == 1){
+            \app\modules\profile\models\Pegawai::saveOnTransaksi(
+                    $this->status
+            );
+        }
+
+        return parent::afterSave($insert, $changedAttributes);
+    }
+
+    
 }
