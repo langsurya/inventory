@@ -62,12 +62,13 @@ class Pegawai extends \yii\db\ActiveRecord
         return [
             [['user_id', 'nip_pegawai', 'nama_pegawai', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'agama_id', 'status_pernikahan', 'golongan_darah', 'email', 'alamat_pegawai', 'npwp', 'nik', 'bank_id', 'nomor_rekening', 'nomor_telp', 'nomor_hp', 'foto', 'status'], 'required'],
             [['user_id', 'agama_id', 'bank_id', 'nomor_rekening', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['tanggal_lahir', 'created_at', 'updated_at'], 'safe'],
+            [['tanggal_lahir', 'keterangan', 'status', 'created_at', 'updated_at'], 'safe'],
             [['alamat_pegawai'], 'string'],
             [['nip_pegawai', 'nomor_telp', 'nomor_hp'], 'string', 'max' => 16],
             [['nama_pegawai', 'tempat_lahir', 'jenis_kelamin', 'status_pernikahan', 'email'], 'string', 'max' => 50],
             [['golongan_darah'], 'string', 'max' => 10],
             [['npwp', 'nik'], 'string', 'max' => 20],
+            [['status','keterangan'], 'required', 'on'=>'verifikasi'],
             [['foto', 'keterangan'], 'string', 'max' => 255],
         ];
     }
