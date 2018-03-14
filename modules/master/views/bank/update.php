@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\master\models\Bank */
 
-$this->title = 'Update Bank: {nameAttribute}';
+$this->title = $model->nama_bank;
 $this->params['breadcrumbs'][] = ['label' => 'Banks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_bank, 'url' => ['view', 'id' => $model->id_bank]];
 $this->params['breadcrumbs'][] = 'Update';
