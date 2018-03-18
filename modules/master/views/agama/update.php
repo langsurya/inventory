@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\master\models\Agama */
 
-$this->title = 'Update Agama: {nameAttribute}';
+$this->title = $model->agama;
 $this->params['breadcrumbs'][] = ['label' => 'Agama', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_agama, 'url' => ['view', 'id' => $model->id_agama]];
 $this->params['breadcrumbs'][] = 'Update';
