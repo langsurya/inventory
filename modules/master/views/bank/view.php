@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\master\models\Bank */
 
 $this->title = $model->id_bank;
-$this->params['breadcrumbs'][] = ['label' => 'Banks', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Bank', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="bank-view">
