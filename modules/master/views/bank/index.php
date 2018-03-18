@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\modules\master\models\BankSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Banks';
+$this->title = 'Bank';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="bank-index">
