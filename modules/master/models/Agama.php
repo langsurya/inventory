@@ -45,7 +45,15 @@ class Agama extends \yii\db\ActiveRecord
 			[['created_by', 'updated_by'], 'integer'],
 			[['created_at', 'updated_at'], 'safe'],
 			[['agama'], 'string', 'max' => 50],
+			[['agama'], 'checkName', 'message' => 'Agama name is already exists.' ,'skipOnEmpty' => false],
 		];
+	}
+
+	public function checkName($attribute) {
+		$model = Agama::find()->where('agama = "' . $this->$attribute . '" AND status != "1"'->all());
+		if (count($model) > 0) {
+			$this->addError($attribute, 'Agama is already exists.');
+		}
 	}
 
 	/**
