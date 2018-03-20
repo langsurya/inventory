@@ -10,12 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="agama-form">
 	
-	<?php $form = ActiveForm::begin([
-		'id' => 'form-terms','enableAjaxValidation' => false,
-		'enableClientValidation' => true,
-		'skipOnEmpty' => false, 
-		'skipOnError' => false
-		]); 
+	<?php $form = ActiveForm::begin(); 
 	?>
 
 	<?= $form->field($model, 'agama')->textInput(['maxlength' => true]) ?>
