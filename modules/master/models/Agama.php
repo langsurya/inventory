@@ -50,7 +50,7 @@ class Agama extends \yii\db\ActiveRecord
 	}
 
 	public function checkName($attribute) {
-		$model = Agama::find()->where('agama = "' . $this->$attribute . '" AND status != "1"'->all());
+		$model = Agama::find()->where( 'agama = "' . $this->$attribute .'"')->all();
 		if (count($model) > 0) {
 			$this->addError($attribute, 'Agama is already exists.');
 		}
