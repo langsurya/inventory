@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
@@ -23,7 +24,28 @@ $this->params['breadcrumbs'][] = $this->title;
 			['class' => 'yii\grid\SerialColumn'],
 			'agama',
 
-			['class' => 'yii\grid\ActionColumn'],
+			['class' => 'yii\grid\ActionColumn',
+			'header' => 'Aksi',
+                'template' => '{view} {update} {delete}',
+                'contentOptions' => ['style' => 'text-align: center; width:120px;'],
+                'buttons' => [
+                    'view' => function ($url, $model) {
+                        return  Html::a('<i class="fa fa-eye"></i>',
+                                Url::toRoute(['view', 'id' => $model->id_agama]),
+                                ['class'=>'btn btn-success btn-xs aksi']);
+                    },
+                    'update' => function ($url, $model) {
+                        return  Html::a('<i class="fa fa-pencil"></i>', 
+                                Url::toRoute(['update', 'id' => $model->id_agama]), 
+                                ['class'=>'btn btn-warning btn-xs aksi']);
+                    },
+                    'delete' => function ($url, $model) {
+                        return  Html::a('<i class="fa fa-trash-o"></i>', 
+                                Url::toRoute(['delete', 'id' => $model->id_agama]), 
+                                ['class'=>'btn btn-danger btn-xs aksi','data-method'=>'post', 'data-confirm'=>'Anda Yakin?']);
+                    },
+                ]
+			],
 		],
 	]); 
 ?>
