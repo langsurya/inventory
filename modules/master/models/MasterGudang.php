@@ -5,16 +5,17 @@ namespace app\modules\master\models;
 use Yii;
 
 /**
- * This is the model class for table "master_bank".
+ * This is the model class for table "master_gudang".
  *
- * @property int $id_bank
- * @property string $nama_bank
+ * @property int $id_gudang
+ * @property string $nama_gudang
+ * @property string $alamat
  * @property int $created_by
  * @property int $updated_by
  * @property string $created_at
  * @property string $updated_at
  */
-class Bank extends \yii\db\ActiveRecord
+class MasterGudang extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -32,7 +33,7 @@ class Bank extends \yii\db\ActiveRecord
 
     public static function tableName()
     {
-        return 'master_bank';
+        return 'master_gudang';
     }
 
     /**
@@ -41,19 +42,12 @@ class Bank extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama_bank'], 'required'],
+            [['nama_gudang'], 'required'],
             [['created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['nama_bank'], 'string', 'max' => 50],
-            [['nama_bank'], 'checkName', 'message' => 'Bank name is already exists.', 'skipOnEmpty' => false],
+            [['nama_gudang'], 'string', 'max' => 11],
+            [['alamat'], 'string', 'max' => 255],
         ];
-    }
-
-    public function checkName($attribute) {
-        $model = Bank::find()->where('nama_bank = "' . $this->$attribute . '"')->all();
-        if (count($model) > 0) {
-            $this->addError($attribute, 'Bank name is already exists');
-        }
     }
 
     /**
@@ -62,8 +56,9 @@ class Bank extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_bank' => 'Id Bank',
-            'nama_bank' => 'Nama Bank',
+            'id_gudang' => 'Id Gudang',
+            'nama_gudang' => 'Nama Gudang',
+            'alamat' => 'Alamat',
             'created_by' => 'Created By',
             'updated_by' => 'Updated By',
             'created_at' => 'Created At',
