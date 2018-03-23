@@ -64,13 +64,13 @@ class AgamaController extends Controller
 	 * @return mixed
 	 */
 	public function actionCreate()
-		{
+	{
 		Url::remember();
 		$model = new Agama();
 
 		if(Yii::$app->request->isAjax) {
-	    $model->load(Yii::$app->request->post());
-	    return Json::encode(\yii\widgets\ActiveForm::validate($model));
+		    $model->load(Yii::$app->request->post());
+		    return Json::encode(\yii\widgets\ActiveForm::validate($model));
 		}
 
 		$connection = Yii::$app->db;
