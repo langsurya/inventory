@@ -45,7 +45,15 @@ class Bank extends \yii\db\ActiveRecord
             [['created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['nama_bank'], 'string', 'max' => 50],
+            [['nama_bank'], 'checkName', 'message' => 'Bank name is already exists.', 'skipOnEmpty' => false],
         ];
+    }
+
+    public function checkName($attribute) {
+        $model = Bank::find()->where('nama_bank = "' . $this->$attribute . '"')->all();
+        if (count($model) > 0) {
+            $this->addError($attribute, 'Bank name is already exists');
+        }
     }
 
     /**
