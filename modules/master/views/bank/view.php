@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id_bank',
             'nama_bank',
-            'created_by',
+            'created_by', 
             'updated_by',
             'created_at',
             'updated_at',
