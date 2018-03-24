@@ -113,7 +113,7 @@ class SiteController extends Controller
 
     protected function setSessionPegawai()
     {
-        if (Yii::$app->user->can('pegawai-role')) {
+        if (Yii::$app->user->can('karyawan-role')) {
             $model = Pegawai::find()->where(['user_id'=>Yii::$app->user->identity->id])->one();
             if (!empty($model)) {
                 \Yii::$app->session['namaPegawai'] = $model->nama_pegawai;
