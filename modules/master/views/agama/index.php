@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="agama-index">
 
 	<p>
-		<?= Html::a('Create Agama', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Agama', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 
 <?php Pjax::begin(); ?>    <?= GridView::widget([
