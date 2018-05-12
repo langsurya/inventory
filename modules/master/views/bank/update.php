@@ -7,13 +7,21 @@ use yii\helpers\Html;
 
 $this->title = $model->nama_bank;
 $this->params['breadcrumbs'][] = ['label' => 'Bank', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_bank, 'url' => ['view', 'id' => $model->id_bank]];
+$this->params['breadcrumbs'][] = ['label' => $model->nama_bank, 'url' => ['view', 'id' => $model->id_bank]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="bank-update">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
- 
+<div class="panel">
+    <div class="panel-body">
+        
+        <div class="bank-update">
+
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
+         
+        </div>
+
+    </div>
 </div>
+

@@ -7,15 +7,19 @@ use yii\helpers\Html;
 
 $this->title = $model->nama_gudang;
 $this->params['breadcrumbs'][] = ['label' => 'Master Gudang', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_gudang, 'url' => ['view', 'id' => $model->id_gudang]];
+$this->params['breadcrumbs'][] = ['label' => $model->nama_gudang, 'url' => ['view', 'id' => $model->id_gudang]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="master-gudang-update">
+<div class="panel">
+    <div class="panel-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <div class="master-gudang-update">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
 
+        </div>
+        
+    </div>
 </div>

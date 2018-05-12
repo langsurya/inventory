@@ -10,10 +10,17 @@ $this->title = 'Tambah Categori';
 $this->params['breadcrumbs'][] = ['label' => 'Categori', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="categories-create">
+<div class="panel">
+    <div class="panel-body">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+        <div class="categories-create">
 
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
+
+        </div>
+        
+    </div>
 </div>
+

@@ -4,23 +4,22 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\master\models\MasterGudang */
+/* @var $model app\modules\master\models\Suppliers */
 
-$this->title = 'Create Master Gudang';
-$this->params['breadcrumbs'][] = ['label' => 'Master Gudang', 'url' => ['index']];
+$this->title = 'Create Suppliers';
+$this->params['breadcrumbs'][] = ['label' => 'Suppliers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="panel">
     <div class="panel-body">
-        
-        <div class="master-gudang-create">
+
+        <div class="suppliers-create">
 
             <?= $this->render('_form', [
                 'model' => $model,
             ]) ?>
 
         </div>
-        
+
     </div>
 </div>
-

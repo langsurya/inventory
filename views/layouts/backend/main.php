@@ -42,11 +42,8 @@ BackendAsset::register($this);
 				</div>
 			</div>
 			<div class="ui-content-body">
-				<div class="panel">
-					<div class="panel-body">
-						<?php echo $content ?>
-					</div>
-				</div>
+                <?php echo $this->render('flash_message') ?>
+                <?php echo $content ?>
 			</div>
 		</div>
 

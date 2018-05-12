@@ -10,12 +10,17 @@ $this->title = 'Tambah Bank';
 $this->params['breadcrumbs'][] = ['label' => 'Bank', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="bank-create">
+<div class="panel">
+    <div class="panel-body">
+        
+        <div class="bank-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?> 
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?> 
-
+        </div>
+        
+    </div>
 </div>
+
