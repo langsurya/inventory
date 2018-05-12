@@ -47,6 +47,6 @@ You can see code coverage output under the `tests/_output` directory.
     <a href="https://github.com/er1an9/inventory" target="_blank">
         <img src="https://scontent.fjkt1-1.fna.fbcdn.net/v/t1.0-9/32267114_2105399553076117_2922169562059243520_n.jpg?_nc_cat=0&oh=8e38deda6e6f98fa32778bca2c6e8fc6&oe=5B535E0F" height="500px">
     </a>
-    <h1 align="center">Yii 2 Basic Project Template</h1>
+    <h1 align="center">Dasboard</h1>
     <br>
 </p>
