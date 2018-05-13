@@ -30,6 +30,14 @@ You can see code coverage output under the `tests/_output` directory.
     <a href="https://github.com/er1an9/inventory" target="_blank">
         <img src="https://scontent.fjkt1-1.fna.fbcdn.net/v/t1.0-9/32267114_2105399553076117_2922169562059243520_n.jpg?_nc_cat=0&oh=8e38deda6e6f98fa32778bca2c6e8fc6&oe=5B535E0F" height="500px">
     </a>
-    <h1 align="center">Dasboard</h1>
+    <h3 align="center">Dasboard</h3>
+    <br>
+</p>
+
+<p align="center">
+    <a href="https://github.com/er1an9/inventory" target="_blank">
+        <img src="https://scontent.fjkt1-1.fna.fbcdn.net/v/t1.0-9/32313917_2106016983014374_7765620227756261376_n.jpg?_nc_cat=0&oh=5e868730b24356a0bf90e3bb279879a7&oe=5B9A45E1" height="500px">
+    </a>
+    <h3 align="center">Create data Suppliers</h3>
     <br>
 </p>
