@@ -15,6 +15,9 @@ use mdm\admin\models\form\ResetPassword;
 use mdm\admin\models\form\Signup;
 use mdm\admin\models\form\ChangePassword;
 
+use app\modules\master\models\MasterGudang;
+use app\modules\master\models\Suppliers;
+
 class SiteController extends Controller
 {
     /**
@@ -70,7 +73,13 @@ class SiteController extends Controller
             return $this->redirect(['login']);
         }
 
-        return $this->render('index');
+        $gudang = MasterGudang::find()->count();
+        $Suppliers = Suppliers::find()->count();
+
+        return $this->render('index', [
+            'gudang' => $gudang,
+            'Suppliers' => $Suppliers,
+        ]);
     }
 
     /**

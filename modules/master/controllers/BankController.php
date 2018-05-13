@@ -16,9 +16,7 @@ use yii\filters\VerbFilter;
  */
 class BankController extends Controller
 {
-	/**
-     * @inheritdoc
-     */
+
 	public function behaviors()
 	{
 		return [
@@ -31,10 +29,6 @@ class BankController extends Controller
 		];
 	}
 
-	/**
-     * Lists all Bank models.
-     * @return mixed
-     */
 	public function actionIndex()
 	{
 		$searchModel = new BankSearch();
@@ -46,11 +40,6 @@ class BankController extends Controller
 		]);
 	}
 
-	/**
-     * Displays a single Bank model.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -58,11 +47,6 @@ class BankController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Bank model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         Url::remember();
@@ -96,17 +80,11 @@ class BankController extends Controller
             }
         }
         
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
 
-    /**
-     * Updates an existing Bank model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -120,26 +98,13 @@ class BankController extends Controller
         }
     }
 
-    /**
-     * Deletes an existing Bank model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
-
-    /**
-     * Finds the Bank model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Bank the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+    
     protected function findModel($id)
     {
         if (($model = Bank::findOne($id)) !== null) {

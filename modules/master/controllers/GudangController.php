@@ -14,9 +14,7 @@ use yii\filters\VerbFilter;
  */
 class GudangController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
+    
     public function behaviors()
     {
         return [
@@ -28,28 +26,20 @@ class GudangController extends Controller
             ],
         ];
     }
-
-    /**
-     * Lists all MasterGudang models.
-     * @return mixed
-     */
+    
     public function actionIndex()
     {
+        $model = new MasterGudang();
         $searchModel = new GudangSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'model' => $model,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
-    /**
-     * Displays a single MasterGudang model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -57,17 +47,13 @@ class GudangController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new MasterGudang model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new MasterGudang();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_gudang]);
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Gudang is successfully added.'));
+            return $this->redirect('index');
         }
 
         return $this->render('create', [
@@ -75,19 +61,13 @@ class GudangController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing MasterGudang model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_gudang]);
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Gudang is successfully updated.'));
+            return $this->redirect('index');
         }
 
         return $this->render('update', [
@@ -95,13 +75,6 @@ class GudangController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing MasterGudang model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -109,13 +82,6 @@ class GudangController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the MasterGudang model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return MasterGudang the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = MasterGudang::findOne($id)) !== null) {

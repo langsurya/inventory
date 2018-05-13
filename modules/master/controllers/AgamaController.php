@@ -31,10 +31,6 @@ class AgamaController extends Controller
 		];
 	}
 
-	/**
-     * Lists all Agama models.
-     * @return mixed
-     */
 	public function actionIndex()
 	{
 		$searchModel = new AgamaSearch();
@@ -46,11 +42,6 @@ class AgamaController extends Controller
 		]);
 	}
 
-	/**
-	 * Display a single Agama model.
-	 * @param integer $id
-	 * @return mixed
-	 */
 	public function actionView($id)
 	{
 		return $this->render('view', [
@@ -58,11 +49,6 @@ class AgamaController extends Controller
 		]);
 	}
 
-	/**
-	 * Creates a new Agama model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 * @return mixed
-	 */
 	public function actionCreate()
 	{
 		Url::remember();
@@ -101,12 +87,6 @@ class AgamaController extends Controller
 		]);
 	}
 
-	/**
-	 * Updates an existing Agama model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id
-	 * @return mixed
-	 */
 	public function actionUpdate($id)
 	{
 		$model = $this->findModel($id);
@@ -120,26 +100,13 @@ class AgamaController extends Controller
 		}
 	}
 
-	/**
-	 * Deletes an existing Agama model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 * @param integer $id
-	 * @return mixed
-	 */
 	public function actionDelete($id)
 	{
 		$this->findModel($id)->delete();
 
 		return $this->redirect(['index']);
 	}
-
-	/**
-	 * Finds the Agama model based on its primary key value.
-	 * If the model is not found, a 404 HTTP exception will be throw.
-	 * @param integer $id
-	 * @return Agama the loaded model
-	 * @throws NotFoundHttpException if the model cannot be found
-	 */
+	
 	protected function findModel($id)
 	{
 		if (($model = Agama::findOne($id)) !== null) {

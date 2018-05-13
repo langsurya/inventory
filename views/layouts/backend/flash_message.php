@@ -18,7 +18,8 @@ use yii\helpers\Html;
 
 <?php if (Yii::$app->session->hasFlash('warning')): ?>
     <div class="alert alert-warning alert-dismissable timer">
-    <?= Yii::$app->session->getFlash('warning') ?><p class="pull-right countDown">07</p>
+        <button aria-hidden="true" data-dismiss="alert" class="close pull-right" type="button"><i class="fa fa-close"></i></button>
+        <?= Yii::$app->session->getFlash('warning') ?><p class="pull-right countDown">07</p>
     </div>
 <?php endif; ?>
 

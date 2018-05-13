@@ -63,7 +63,7 @@ class PermohonanDataPegawaiController extends Controller
    public function actionDataDiri($id = null)
    {
         if (!array_key_exists('karyawan-role', Yii::$app->authManager->getRolesByUser($this->userId))) {
-            Yii::$app->getSession()->setFlash('error', 'Maaf, anda tidak memiliki role peawai');
+            Yii::$app->getSession()->setFlash('error', 'Maaf, anda tidak memiliki role Pegawai');
             return $this->goHome();
         }
         

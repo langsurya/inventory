@@ -50,7 +50,7 @@ class Suppliers extends \yii\db\ActiveRecord
             [['created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['company_name', 'supplier_name'], 'string', 'max' => 100],
-            [['phone'], 'string', 'max' => 20],
+            [['phone'], 'string', 'max' => 14],
             [['email'], 'string', 'max' => 50],
         ];
     }

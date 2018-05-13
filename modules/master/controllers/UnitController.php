@@ -3,17 +3,16 @@
 namespace app\modules\master\controllers;
 
 use Yii;
-use app\modules\master\models\Suppliers;
-use app\modules\master\models\SuppliersSearch;
+use app\modules\master\models\Unit;
+use app\modules\master\models\UnitSearch;
 use yii\web\Controller;
-use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SuppliersController implements the CRUD actions for Suppliers model.
+ * UnitController implements the CRUD actions for Unit model.
  */
-class SuppliersController extends Controller
+class UnitController extends Controller
 {
 
     public function behaviors()
@@ -30,8 +29,8 @@ class SuppliersController extends Controller
 
     public function actionIndex()
     {
-        $searchModel = new SuppliersSearch();
-        $model = new Suppliers();
+        $model = new Unit();
+        $searchModel = new UnitSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -50,32 +49,37 @@ class SuppliersController extends Controller
 
     public function actionCreate()
     {
-        Url::remember();
-        $model = new Suppliers();
+        $model = new Unit();
 
         $connection = Yii::$app->db;
         $transaction = $connection->beginTransaction();
 
         if ($model->load(Yii::$app->request->post())) {
             $valid = $model->validate();
-
             if ($valid) {
                 try {
-                    $model->save();
+                    $model->save();                    
                     $transaction->commit();
-                    Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Supplier is successfully added.'));
+
+                    Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Unit is successfully added.'));
                     return $this->redirect('index');
                 } catch (Exception $e) {
-
                     $transaction->rollback();
                     Yii::$app->getSession()->setFlash('error', Yii::t('app', $e->getMessage()));
-                     return $this->redirect('index');
+                    return $this->render('create', [
+                        'model' => $model,
+                    ]);
                 }
             } else {
                 Yii::$app->getSession()->setFlash('error', Yii::t('app', 'Please change a few things up and try submitting again. '));
+                return $this->redirect('index');
             }
-            return $this->redirect('index');
+            
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     public function actionUpdate($id)
@@ -83,7 +87,7 @@ class SuppliersController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Agama is successfully added.'));
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Unit is successfully updated.'));
             return $this->redirect('index');
         }
 
@@ -95,7 +99,7 @@ class SuppliersController extends Controller
     public function actionDelete($id)
     {
         if ($this->findModel($id)->delete()) {
-            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Delete Supplier is successfully.'));
+            Yii::$app->getSession()->setFlash('warning', Yii::t('app', 'Delete Supplier is successfully.'));
             return $this->redirect(['index']);
         } else {
             Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Delete Supplier is failed.'));
@@ -105,7 +109,7 @@ class SuppliersController extends Controller
 
     protected function findModel($id)
     {
-        if (($model = Suppliers::findOne($id)) !== null) {
+        if (($model = Unit::findOne($id)) !== null) {
             return $model;
         }
 

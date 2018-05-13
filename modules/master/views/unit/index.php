@@ -6,21 +6,21 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\master\models\GudangSearch */
+/* @var $searchModel app\modules\master\models\UnitSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Master Gudang';
+$this->title = 'Units';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="panel">
     <div class="panel-body">
-        
-        <div class="master-gudang-index">
+
+        <div class="unit-index">
             
             <?php Pjax::begin(); ?>
 
             <p>
-                <?= Html::a('Create Gudang', Url::to('#myModal', false), ['data-toggle'=>'modal', 'class' => 'btn btn-md btn-success']) ?>
+                <?= Html::a('Create Unit', Url::to('#myModal', false), ['data-toggle'=>'modal', 'class' => 'btn btn-md btn-success']) ?>
             </p>
 
             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
@@ -28,17 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="modal-content">
                         <div class="modal-header">
                             <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                            <h4 class="modal-title">Create Gudang</h4>
+                            <h4 class="modal-title">Create Unit</h4>
                         </div>
                         <div class="modal-body">
 
                             <?php $form = ActiveForm::begin([
-                                'action' => ['/master/gudang/create'],
+                                'action' => ['/master/unit/create'],
                                 ]); ?>
 
-                            <?= $form->field($model, 'nama_gudang')->textInput(['maxlength' => true]) ?>
-
-                            <?= $form->field($model, 'alamat')->textarea(['rows' => '4', 'maxlength' => true]) ?>
+                            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
                             <div class="form-group">
                                 <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
@@ -50,15 +48,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
             </div>
-            
+
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
 
-                    'nama_gudang',
-                    'alamat',
+                    'name',
+                    'created_at',
 
                     [
                         'class' => 'yii\grid\ActionColumn',
@@ -68,17 +66,17 @@ $this->params['breadcrumbs'][] = $this->title;
                             'buttons' => [
                                 'view' => function ($url, $model) {
                                     return Html::a('<i class="fa fa-eye"></i>',
-                                        Url::toRoute(['view', 'id' => $model->id_gudang]),
+                                        Url::toRoute(['view', 'id' => $model->id]),
                                         ['class' => 'btn btn-success btn-xs aksi']);
                                 },
                                 'update' => function ($url, $model) {
                                     return Html::a('<i class="fa fa-pencil"></i>',
-                                    Url::toRoute(['update', 'id' => $model->id_gudang]),
+                                    Url::toRoute(['update', 'id' => $model->id]),
                                     ['class'=>'btn btn-warning btn-xs aksi']);
                                 },
                                 'delete' => function ($url, $model) {
                                     return Html::a('<i class="fa fa-trash-o"></i>',
-                                    Url::toRoute(['delete', 'id' => $model->id_gudang]),
+                                    Url::toRoute(['delete', 'id' => $model->id]),
                                     ['class'=>'btn btn-danger btn-xs aksi','data-method'=>'post', 'data-confirm'=>'Anda Yakin?']);
                                 },
                             ]
@@ -90,4 +88,3 @@ $this->params['breadcrumbs'][] = $this->title;
         
     </div>
 </div>
-

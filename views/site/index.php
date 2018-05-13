@@ -35,14 +35,14 @@ $this->title = 'Dasboard Application';
                     </div>
                     <div class="col-xs-6">
                         <a href="#" class="btn btn-success btn-block">
-                            <span class="value">13</span>
-                            <span class="info">Inbound</span>
+                            <span class="value"><?= $gudang ?></span>
+                            <span class="info">Gudang</span>
                         </a>
                     </div>
                     <div class="col-xs-6">
                         <a href="#" class="btn btn-danger btn-block">
-                            <span class="value">02</span>
-                            <span class="info">Outbound</span>
+                            <span class="value"><?= $Suppliers ?></span>
+                            <span class="info">Suppliers</span>
                         </a>
                     </div>
                     <div class="col-xs-6">
