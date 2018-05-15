@@ -47,6 +47,12 @@ BackendAsset::register($this);
 			</div>
 		</div>
 
+        <!--footer start-->
+        <div id="footer" class="ui-footer">
+            2018 &copy; Elang Surya.
+        </div>
+        <!--footer end-->
+
 	</div>
 
 <?php $this->endBody() ?>

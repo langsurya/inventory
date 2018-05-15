@@ -8,6 +8,9 @@ use yii\helpers\ArrayHelper;
 
 use mdm\admin\models\User;
 use app\modules\master\models\Bank;
+use app\modules\master\models\Categories;
+use app\modules\master\models\Suppliers;
+use app\modules\master\models\Unit;
 use app\modules\profile\models\Pegawai;
 
 class HelperData extends \yii\base\Component
@@ -21,15 +24,33 @@ class HelperData extends \yii\base\Component
 		return $data;	
 	}
 
-	public function agamaName($id)
+    public function agamaName($id)
     {
-		$data = [1=>'Islam', 'Kristen Protestan', 'Kristen Katolik', 'Budha', 'Dll'];
-		foreach ($data as $key => $value) {
-			if ($key == $id) {
-				$data = $value;
-			}
-		}
+        $data = [1=>'Islam', 'Kristen Protestan', 'Kristen Katolik', 'Budha', 'Dll'];
+        foreach ($data as $key => $value) {
+            if ($key == $id) {
+                $data = $value;
+            }
+        }
         return $data;
+    }
+
+    public function listCategory()
+    {
+        $data = Categories::find()->orderBy('name')->all();
+        return ArrayHelper::map($data, 'id_category', 'name');
+    }
+
+    public function listSupplier()
+    {
+        $data = Suppliers::find()->orderBy('company_name')->all();
+        return ArrayHelper::map($data, 'id_supplier', 'company_name');
+    }
+
+    public function listUnit()
+    {
+        $data = Unit::find()->orderBy('name')->all();
+        return ArrayHelper::map($data, 'id', 'name');
     }
 
 	/* Nama bang */
