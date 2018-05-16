@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="modal-content">
                 <div class="modal-header">
                     <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                    <h4 class="modal-title">Create Suppliers</h4>
+                    <h4 class="modal-title">Create Product</h4>
                 </div>
                 <div class="modal-body">
 
