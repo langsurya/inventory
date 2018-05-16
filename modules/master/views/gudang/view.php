@@ -10,10 +10,17 @@ $this->title = $model->nama_gudang;
 $this->params['breadcrumbs'][] = ['label' => 'Master Gudang', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="panel">
-    <div class="panel-body">
 
-        <div class="master-gudang-view">
+<div class="col-md-12">
+
+    <div class="panel panel-info">
+        <header class="panel-heading">
+        </header>
+        <div class="panel-body">
+            
+            <div class="master-gudang-update">
+
+                <div class="master-gudang-view">
 
             <p>
                 <?= Html::a('Update', ['update', 'id' => $model->id_gudang], ['class' => 'btn btn-primary']) ?>
@@ -40,7 +47,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
 
         </div>
-        
-    </div>
-</div>
 
+            </div>
+
+        </div>
+    </div>
+
+</div>

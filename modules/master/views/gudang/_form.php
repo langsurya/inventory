@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-10">
             <?= $form->field($model, 'nama_gudang')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'alamat')->textarea(['rows' => '4', 'maxlength' => true]) ?>
