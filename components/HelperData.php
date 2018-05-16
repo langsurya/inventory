@@ -11,6 +11,7 @@ use app\modules\master\models\Bank;
 use app\modules\master\models\Categories;
 use app\modules\master\models\Suppliers;
 use app\modules\master\models\Unit;
+use app\modules\master\models\MasterGudang;
 use app\modules\profile\models\Pegawai;
 
 class HelperData extends \yii\base\Component
@@ -51,6 +52,12 @@ class HelperData extends \yii\base\Component
     {
         $data = Unit::find()->orderBy('name')->all();
         return ArrayHelper::map($data, 'id', 'name');
+    }
+
+    public function listGudang()
+    {
+        $data = MasterGudang::find()->orderBy('nama_gudang')->all();
+        return ArrayHelper::map($data, 'id_gudang', 'nama_gudang');
     }
 
 	/* Nama bang */
