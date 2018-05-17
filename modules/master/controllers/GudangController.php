@@ -5,7 +5,6 @@ namespace app\modules\master\controllers;
 use Yii;
 use app\modules\master\models\MasterGudang;
 use app\modules\master\models\GudangSearch;
-use app\modules\master\models\Rak;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
