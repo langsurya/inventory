@@ -65,4 +65,10 @@ class MasterGudang extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getRak()
+    {
+        return $this->hasMany(Rak::className(), ['gudang_id' => 'id_rak'])
+            ->viaTable('master_rak', ['gudang_id' => 'id_gudang']);
+    }
 }

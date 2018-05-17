@@ -82,7 +82,8 @@ class RakController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_rak]);
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Rak is successfully updated.'));
+            return $this->redirect('index');
         }
 
         return $this->render('update', [

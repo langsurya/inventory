@@ -59,7 +59,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     'nama_gudang',
                     'alamat',
-
+                    [
+                        'header' => 'Rak',
+                        'value' => function($model){
+                            return count($model->rak);
+                        }
+                    ],
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'header' => 'Aksi',
