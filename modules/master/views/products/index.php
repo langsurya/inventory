@@ -6,6 +6,11 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
 
+use app\modules\master\models\Suppliers;
+use app\modules\master\models\Categories;
+use app\modules\master\models\Unit;
+use yii\helpers\ArrayHelper;
+
 $this->title = 'Products';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -86,19 +91,34 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'product_name',
             [
-                'attribute' => 'supplier',
+                'attribute' => 'supplier.company_name',
                 'header' => 'Supplier',
-                'value' => 'supplier.company_name',
+                'filter' => \kartik\select2\Select2::widget([
+                    'options' => ['placeholder' => 'Select a Supplier ...'],
+                    'model' => $searchModel,
+                    'attribute' => 'supplier_id',
+                    'data' => ArrayHelper::map(Suppliers::find()->all(), 'id_supplier', 'company_name')
+                ]),
             ],
             [
-                'attribute' => 'category',
+                'attribute' => 'category.name',
                 'header' => 'Categories',
-                'value' => 'category.name',
+                'filter' => \kartik\select2\Select2::widget([
+                    'options' => ['placeholder' => 'Select a Categories ...'],
+                    'model' => $searchModel,
+                    'attribute' => 'category_id',
+                    'data' => ArrayHelper::map(Categories::find()->all(), 'id_category', 'name')
+                ]),
             ],
             [
-                'attribute' => 'unit',
+                'attribute' => 'unit.name',
                 'header' => 'Unit',
-                'value' => 'unit.name',
+                'filter' => \kartik\select2\Select2::widget([
+                    'options' => ['placeholder' => 'Select a Unit ...'],
+                    'model' => $searchModel,
+                    'attribute' => 'unit_id',
+                    'data' => ArrayHelper::map(Unit::find()->all(), 'id', 'name')
+                ]),
             ],
             //'product_code',
             [

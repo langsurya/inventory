@@ -17,6 +17,11 @@ use mdm\admin\models\form\ChangePassword;
 
 use app\modules\master\models\MasterGudang;
 use app\modules\master\models\Suppliers;
+use app\modules\master\models\Products;
+use app\modules\master\models\Categories;
+use app\modules\master\models\Rak;
+use app\modules\master\models\Unit;
+use app\modules\master\models\Customer;
 
 class SiteController extends Controller
 {
@@ -75,10 +80,20 @@ class SiteController extends Controller
 
         $gudang = MasterGudang::find()->count();
         $Suppliers = Suppliers::find()->count();
+        $product = Products::find()->count();
+        $categories = Categories::find()->count();
+        $rak = Rak::find()->count();
+        $unit = Unit::find()->count();
+        $customer = Customer::find()->count();
 
         return $this->render('index', [
             'gudang' => $gudang,
             'Suppliers' => $Suppliers,
+            'categories' => $categories,
+            'product' => $product,
+            'rak' => $rak,
+            'unit' => $unit,
+            'customer' => $customer,
         ]);
     }
 

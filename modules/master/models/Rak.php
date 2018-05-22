@@ -65,4 +65,8 @@ class Rak extends \yii\db\ActiveRecord
     {
         return $this->hasOne(MasterGudang::className(), ['id_gudang' => 'gudang_id']);
     }
+
+    public function getGud() {
+       return $this->hasMany(MasterGudang::className(), ['id_gudang' => 'gudang_id']);
+   }
 }

@@ -9,7 +9,7 @@ $this->title = 'Dasboard Application';
 ?>
 <div class="row">
     <!--task states start-->
-    <div class="col-md-6 col-lg-4 col-sm-6">
+    <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="panel">
             <header class="panel-heading">
                 Statistics Master
@@ -21,37 +21,61 @@ $this->title = 'Dasboard Application';
             </header>
             <div class="panel-body">
                 <div class="row w-states">
-                    <div class="col-xs-6">
-                        <a href="#" class="btn btn-primary btn-block">
-                            <span class="value">24</span>
-                            <span class="info">Barang</span>
-                        </a>
-                    </div>
-                    <div class="col-xs-6">
-                        <a href="#" class="btn btn-info btn-block">
-                            <span class="value">18</span>
-                            <span class="info">Categories</span>
-                        </a>
-                    </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-2">
                         <a href="#" class="btn btn-success btn-block">
                             <span class="value"><?= $gudang ?></span>
                             <span class="info">Gudang</span>
                         </a>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-2">
+                        <a href="#" class="btn btn-warning btn-block">
+                            <span class="value"><?= $rak ?></span>
+                            <span class="info">Rak</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#" class="btn btn-info btn-block">
+                            <span class="value"><?= $categories ?></span>
+                            <span class="info">Categories</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-2">
                         <a href="#" class="btn btn-danger btn-block">
                             <span class="value"><?= $Suppliers ?></span>
                             <span class="info">Suppliers</span>
                         </a>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-2">
+                        <a href="#" class="btn btn-success btn-block">
+                            <span class="value"><?= $unit ?></span>
+                            <span class="info">Unit</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#" class="btn btn-primary btn-block">
+                            <span class="value"><?= $product ?></span>
+                            <span class="info">Products</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#" class="btn btn-warning btn-block">
+                            <span class="value"><?= $rak ?></span>
+                            <span class="info">Rak</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#" class="btn btn-danger btn-block">
+                            <span class="value"><?= $customer ?></span>
+                            <span class="info">Customer</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-2">
                         <a href="#" class="btn btn-default btn-block margin0">
                             <span class="value">14</span>
                             <span class="info">Barang pending</span>
                         </a>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-2">
                         <a href="#" class="btn btn-default btn-block margin0">
                             <span class="value">08</span>
                             <span class="info">Barang Expired</span>

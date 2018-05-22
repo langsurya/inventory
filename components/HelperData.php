@@ -11,6 +11,8 @@ use app\modules\master\models\Bank;
 use app\modules\master\models\Categories;
 use app\modules\master\models\Suppliers;
 use app\modules\master\models\Unit;
+use app\modules\master\models\Rak;
+use app\modules\master\models\Products;
 use app\modules\master\models\MasterGudang;
 use app\modules\profile\models\Pegawai;
 
@@ -60,6 +62,12 @@ class HelperData extends \yii\base\Component
         return ArrayHelper::map($data, 'id_gudang', 'nama_gudang');
     }
 
+    public function listRak()
+    {
+        $data = Rak::find()->orderBy('name')->all();
+        return ArrayHelper::map($data, 'id_rak', 'name');
+    }
+
 	/* Nama bang */
     public function listBank()
     {
@@ -77,6 +85,15 @@ class HelperData extends \yii\base\Component
         }
 
         return 'No Name';
+    }
+
+    public function getOptions()
+    {
+       return [
+           "Gudang ATK" => ["RA01","RA02"," RA03", "RA04"],
+           "Gudang Pusat" => ["RGP01"],
+           "Gudang Mawar" => ["MR01","RGM02"]
+        ];
     }
 
 }

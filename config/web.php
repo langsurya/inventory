@@ -25,6 +25,9 @@ $config = [
         ],
         'profile' => [
             'class' => 'app\modules\profile\Profile',
+        ],
+        'transaksi' => [
+            'class' => 'app\modules\transaksi\Transaksi',
         ]
     ],
     'components' => [
